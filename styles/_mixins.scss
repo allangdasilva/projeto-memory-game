@@ -2,9 +2,20 @@
     * {
         margin: 0;
         padding: 0;
-        box-sizing: 0;
+        box-sizing: border-box;
         border: none;
+        outline: 0;
 
         font-family: "Cinzel", serif;
+        text-transform: uppercase;
     }
+}
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+@mixin flex-center-column {
+    @include flex-center;
+    flex-direction: column;
 }
