@@ -1,1 +1,1 @@
-{"version":3,"sources":["_mixins.scss","game.css"],"names":[],"mappings":"AACI;EACI,SAAA;EACA,UAAA;EACA,sBAAA;EACA,YAAA;EACA,UAAA;EAEA,4BAAA;EACA,yBAAA;ACDR","file":"game.css"}
+{"version":3,"sources":["_mixins.scss","game.css"],"names":[],"mappings":"AACI;EACI,SAAA;EACA,UAAA;EACA,sBAAA;EACA,YAAA;EACA,UAAA;EAEA,wCAAA;EACA,yBAAA;EACA,mBAAA;ACDR","file":"game.css"}
