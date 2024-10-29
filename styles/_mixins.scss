@@ -1,0 +1,10 @@
+@mixin reset {
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: 0;
+        border: none;
+
+        font-family: "Cinzel", serif;
+    }
+}
