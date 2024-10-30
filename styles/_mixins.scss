@@ -20,3 +20,8 @@
     @include flex-center;
     flex-direction: column;
 }
+@mixin desktop {
+    @media screen and (min-width: 800px) {
+        @content;
+    }
+}
