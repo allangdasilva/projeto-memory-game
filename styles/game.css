@@ -27,7 +27,7 @@
     justify-content: center;
     align-items: flex-start;
     gap: 30px;
-    padding: 40px;
+    padding: 20px;
   }
 }
 .main-game .header-game {
@@ -74,11 +74,10 @@
 .main-game .section-grid .grid-card {
   position: relative;
   aspect-ratio: 3/4;
+  border-radius: 8px;
   transform-style: preserve-3d;
+  background-color: #1C1919;
   transition: transform 0.4s;
-}
-.main-game .section-grid .grid-card:hover {
-  transform: rotateY(180deg);
 }
 .main-game .section-grid .grid-card .card-face {
   position: absolute;
@@ -88,10 +87,14 @@
   border-radius: 8px;
 }
 .main-game .section-grid .grid-card .card-front {
-  background-image: url(../images/daenerys.png);
   border: 1px solid #82815F;
   box-shadow: 0px 0px 5px rgba(243, 243, 243, 0.1843137255);
   transform: rotateY(180deg);
+  transition: filter 0.8s, opacity 0.6s;
+}
+.main-game .section-grid .grid-card .revealed-card {
+  opacity: 0.5;
+  filter: saturate(0);
 }
 .main-game .section-grid .grid-card .card-back {
   cursor: pointer;
@@ -99,4 +102,7 @@
   border: 1px solid #FFF2CE;
   box-shadow: 0px 0px 5px rgba(247, 196, 54, 0.4862745098);
   background-image: url(../images/back.png);
+}
+.main-game .section-grid .rotate-card {
+  transform: rotateY(180deg);
 }/*# sourceMappingURL=game.css.map */
