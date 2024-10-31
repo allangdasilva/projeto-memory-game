@@ -2,7 +2,16 @@ const SECTION_GRID = document.querySelector('.section-grid');
 const CHARACTERS = ['arya', 'bran', 'cersei', 'daenerys', 'jaime', 'jon', 'missandei', 'samwell', 'sansa', 'tyrion'];
 let firstCard = '';
 let secondCard = '';
+let timer = 1;
 
+function checkEndGame(){
+    const REVEALED_CARDS = document.querySelectorAll('.revealed-card');
+
+    if(REVEALED_CARDS.length === 20){
+        clearInterval(this.loop);
+        alert('Parabéns');
+    }
+}
 function checkCard(){
     const FIRST_CARD = firstCard.getAttribute('data-character');
     const SECOND_CARD = secondCard.getAttribute('data-character');
@@ -14,6 +23,7 @@ function checkCard(){
         firstCard = '';
         secondCard = '';
 
+        checkEndGame();
         return;
     }else{
         setTimeout(() => {
@@ -27,6 +37,9 @@ function checkCard(){
     }
 }
 function rotateCard(event){
+    if(event.target.parentNode.className.includes('revealed-card')){
+        return;
+    }
     if(firstCard === ''){
         event.target.parentNode.classList.add('rotate-card');
         firstCard = event.target.parentNode;
@@ -52,16 +65,36 @@ function createCard(eachCharacter){
 
     CARD_BACK.addEventListener('click', rotateCard)
 
-    SECTION_GRID.appendChild(GRID_CARD);
     GRID_CARD.appendChild(CARD_FRONT);
     GRID_CARD.appendChild(CARD_BACK);
+
+    return GRID_CARD;
 }
 function createCharacters(){
     const DUPLICATE_CHARACTERS = [...CHARACTERS, ...CHARACTERS];
     const SHUFFLED_CHARACTER = DUPLICATE_CHARACTERS.sort(()=> Math.random() - 0.5);
 
     SHUFFLED_CHARACTER.map((eachCharacter)=>{
-        createCard(eachCharacter);
+        const CARD = createCard(eachCharacter);
+        SECTION_GRID.appendChild(CARD);
     })
 }
-createCharacters();
+function playerName(){
+    const PLAYER_NAME = document.querySelector('.name');
+
+    const PLAYER_STORAGE  = localStorage.getItem('player');
+
+    PLAYER_NAME.innerHTML = PLAYER_STORAGE;
+}
+function playerTime(){
+    const PLAYER_TIME = document.querySelector('.time');
+
+    this.loop = setInterval(() => {
+        PLAYER_TIME.innerHTML = '0' + timer++;
+    }, 1000);
+}
+window.addEventListener('load', ()=>{
+    createCharacters();
+    playerName();
+    playerTime();
+})

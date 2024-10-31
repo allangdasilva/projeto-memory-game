@@ -21,54 +21,43 @@
   background-size: cover;
   background-position: center;
 }
-@media screen and (min-width: 800px) {
-  .main-game {
-    flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 30px;
-    padding: 20px;
-  }
-}
 .main-game .header-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-image: linear-gradient(rgba(243, 243, 243, 0.1843137255), transparent);
+}
+.main-game .header-game .header-container {
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
   width: 100%;
+  max-width: 800px;
   padding: 20px;
-  background-image: linear-gradient(rgba(243, 243, 243, 0.1843137255), transparent);
 }
-@media screen and (min-width: 800px) {
-  .main-game .header-game {
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 10px;
-    width: 30%;
-    max-width: 260px;
-    padding: 0;
-    background-image: initial;
-  }
-}
-.main-game .header-game span {
+.main-game .header-game .header-container span {
   font-size: 1.1rem;
   font-weight: 600;
   color: #FFF2CE;
   text-shadow: #F7C336 0 0 5px;
+}
+.main-game .header-game .header-container .player-time .time {
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 .main-game .section-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 100%;
+  max-width: 800px;
   padding: 20px;
 }
 @media screen and (min-width: 800px) {
   .main-game .section-grid {
     grid-template-columns: repeat(5, 1fr);
-    padding: 0;
-    max-width: 780px;
   }
 }
 .main-game .section-grid .grid-card {
