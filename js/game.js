@@ -2,7 +2,8 @@ const SECTION_GRID = document.querySelector('.section-grid');
 const CHARACTERS = ['arya', 'bran', 'cersei', 'daenerys', 'jaime', 'jon', 'missandei', 'samwell', 'sansa', 'tyrion'];
 let firstCard = '';
 let secondCard = '';
-let timer = 1;
+let seconds = 0;
+let minutes = 0;
 
 function checkEndGame(){
     const REVEALED_CARDS = document.querySelectorAll('.revealed-card');
@@ -88,9 +89,25 @@ function playerName(){
 }
 function playerTime(){
     const PLAYER_TIME = document.querySelector('.time');
+    PLAYER_TIME.innerHTML = '0' + minutes + ':' + '0' + seconds;
 
     this.loop = setInterval(() => {
-        PLAYER_TIME.innerHTML = '0' + timer++;
+        seconds++;
+
+        if(seconds === 60){
+            minutes++;
+            seconds = 0;
+        }
+        if(seconds < 10){
+            PLAYER_TIME.innerHTML = '0' + minutes + ':' + '0' + seconds;
+        }else{
+            PLAYER_TIME.innerHTML = '0' + minutes + ':' + seconds;
+        }
+        if(minutes >= 10 && seconds < 10){
+            PLAYER_TIME.innerHTML = minutes + ':' + '0' + seconds;
+        }else if(minutes >= 10 && seconds >= 10){
+            PLAYER_TIME.innerHTML = minutes + ':' + seconds;
+        }
     }, 1000);
 }
 window.addEventListener('load', ()=>{
