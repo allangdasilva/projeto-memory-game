@@ -58,20 +58,7 @@
         }
         .input-submit-login {
             width: 100%;
-            padding-block: 10px;
-
-            border-radius: 8px;
-
-            font-size: 1.2rem;
-            font-weight: 800;
-
-            cursor: pointer;
-            
-            box-shadow: 0 0 2px $gold;
-
-            color: $white;
-            background-color: $gold;
-
+            @include button-style;
 
             &:disabled {
                 cursor: initial;

@@ -10,7 +10,7 @@ function checkEndGame(){
 
     if(REVEALED_CARDS.length === 20){
         clearInterval(this.loop);
-        alert('Parabéns');
+        restartGame();
     }
 }
 function checkCard(){
@@ -109,6 +109,22 @@ function playerTime(){
             PLAYER_TIME.innerHTML = minutes + ':' + seconds;
         }
     }, 1000);
+}
+function restartGame(){
+    const RESTART_GAME = document.querySelector('.restart-game');
+    const SPAN_PLAYER_TIME = document.querySelector('#player-time');
+    const PLAY_AGAIN_BTN = document.querySelector('#play-again-btn');
+
+    if(minutes === 0){
+        SPAN_PLAYER_TIME.innerHTML = `${seconds < 10 ? '0' + seconds : seconds} segundos`;
+    } else {
+        SPAN_PLAYER_TIME.innerHTML = `${minutes}:${seconds < 10 ? '0' + seconds : seconds} min`;
+    };
+    RESTART_GAME.classList.remove('restart-game-hidden');
+
+    PLAY_AGAIN_BTN.addEventListener('click', ()=>{
+        window.location.reload();
+    });
 }
 window.addEventListener('load', ()=>{
     createCharacters();

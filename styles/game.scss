@@ -4,6 +4,7 @@
 @include reset;
 
 .main-game {
+    position: relative;
     @include flex-center-column;
     justify-content: initial;
     
@@ -108,5 +109,46 @@
             transform: rotateY(180deg);
             
         }
+    }
+    .restart-game {
+        @include flex-center-column;
+        gap: 18px;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        padding-inline: 10px;
+
+        background: $bg-primary;
+
+        transition: all .4s;
+
+        p {
+            text-align: center;
+            color: $white;
+            font-size: 1.2rem;
+
+            span {
+                padding: 3px;
+                background-color: $gold-1;
+            }
+        }
+        button {
+            @include button-style;
+            transition: all .2s;
+
+            &:hover{
+                color: $gold;
+                background-color: $white;
+            }
+        }
+    }
+    .restart-game-hidden {
+        opacity: 0;
+        pointer-events: none;
     }
 }

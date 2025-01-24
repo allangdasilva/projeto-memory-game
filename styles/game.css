@@ -10,6 +10,7 @@
 }
 
 .main-game {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,4 +95,47 @@
 }
 .main-game .section-grid .rotate-card {
   transform: rotateY(180deg);
+}
+.main-game .restart-game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 18px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-inline: 10px;
+  background: rgba(115, 132, 148, 0.8);
+  transition: all 0.4s;
+}
+.main-game .restart-game p {
+  text-align: center;
+  color: #F3F3F3;
+  font-size: 1.2rem;
+}
+.main-game .restart-game p span {
+  padding: 3px;
+  background-color: rgba(247, 196, 54, 0.4862745098);
+}
+.main-game .restart-game button {
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 0 2px #F7C336;
+  color: #F3F3F3;
+  background-color: #F7C336;
+  transition: all 0.2s;
+}
+.main-game .restart-game button:hover {
+  color: #F7C336;
+  background-color: #F3F3F3;
+}
+.main-game .restart-game-hidden {
+  opacity: 0;
+  pointer-events: none;
 }/*# sourceMappingURL=game.css.map */
