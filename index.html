@@ -21,17 +21,20 @@
     <main class="main-login">
       <!-- Header Login -->
       <div class="header-login">
-        <img src="images/logo-got-white.png" alt="logo game of thrones" />
+        <img src="images/game-of-thrones-white.svg" alt="Game of Thrones" />
         <h1>Jogo da Memória</h1>
       </div>
 
       <!-- Form Login -->
       <form class="form-login">
+        <label class="sr-only" for="name">Nome</label>
         <input
           type="text"
           class="input-text-login"
           placeholder="Seu Nome"
           maxlength="18"
+          required
+          id="name"
         />
         <button type="submit" class="input-submit-login" disabled>Jogar</button>
       </form>

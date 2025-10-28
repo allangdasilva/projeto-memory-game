@@ -115,9 +115,9 @@ function createCard(eachCharacter) {
   const CARD_BACK = createElement("div", "card-face card-back");
 
   GRID_CARD.setAttribute("data-character", eachCharacter);
-  CARD_FRONT.style.backgroundImage = `url(../images/${eachCharacter}.png`;
+  CARD_FRONT.style.backgroundImage = `url(../images/${eachCharacter}.jpg`;
 
-  CARD_BACK.addEventListener("click", rotateCard);
+  CARD_BACK.addEventListener("pointerdown", rotateCard);
 
   GRID_CARD.appendChild(CARD_FRONT);
   GRID_CARD.appendChild(CARD_BACK);

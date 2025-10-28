@@ -9,10 +9,10 @@
 
   cursor: pointer;
 
-  box-shadow: 0 0 2px $gold;
+  box-shadow: 0 0 2px $secondary;
 
   color: $white;
-  background-color: $gold;
+  background-color: $secondary;
 }
 @mixin reset {
   * {
