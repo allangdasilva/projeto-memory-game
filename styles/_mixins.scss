@@ -1,43 +1,44 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 @mixin button-style {
-    padding: 10px;
-    border-radius: $border-radius-primary;
+  padding: 10px;
+  border-radius: $border-radius-primary;
 
-    font-size: 1.2rem;
-    font-weight: 800;
+  font-size: 1.2rem;
+  font-weight: 800;
 
-    cursor: pointer;
-    
-    box-shadow: 0 0 2px $gold;
+  cursor: pointer;
 
-    color: $white;
-    background-color: $gold;
+  box-shadow: 0 0 2px $gold;
+
+  color: $white;
+  background-color: $gold;
 }
 @mixin reset {
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        border: none;
-        outline: 0;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: 0;
+    list-style: none;
 
-        font-family: "Pixelify Sans", sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-    }
+    font-family: "Pixelify Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
 }
 @mixin flex-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @mixin flex-center-column {
-    @include flex-center;
-    flex-direction: column;
+  @include flex-center;
+  flex-direction: column;
 }
 @mixin desktop {
-    @media screen and (min-width: 800px) {
-        @content;
-    }
+  @media screen and (min-width: 800px) {
+    @content;
+  }
 }

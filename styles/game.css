@@ -4,6 +4,7 @@
   box-sizing: border-box;
   border: none;
   outline: 0;
+  list-style: none;
   font-family: "Pixelify Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -11,57 +12,63 @@
 
 .main-game {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  justify-content: initial;
   min-height: 100vh;
   width: 100%;
   background-image: url(../images/bg-login.jpg);
   background-size: cover;
   background-position: center;
 }
-.main-game .header-game {
+.main-game .content-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+.main-game .content-wrapper .header-game {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  background-image: linear-gradient(rgba(243, 243, 243, 0.1843137255), transparent);
 }
-.main-game .header-game .header-container {
+.main-game .content-wrapper .header-game .header-container {
   display: flex;
   justify-content: center;
   align-items: center;
   justify-content: space-between;
   width: 100%;
   max-width: 800px;
-  padding: 20px;
+  padding: 20px 20px 0px 20px;
 }
-.main-game .header-game .header-container span {
+.main-game .content-wrapper .header-game .header-container span {
   font-size: 1.1rem;
   font-weight: 600;
   color: #FFF2CE;
   text-shadow: #F7C336 0 0 5px;
 }
-.main-game .header-game .header-container .player-time .time {
-  font-size: 1.2rem;
-  font-weight: 500;
+.main-game .content-wrapper .header-game .header-container .player-time .time {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: normal;
 }
-.main-game .section-grid {
+.main-game .content-wrapper .section-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   width: 100%;
   max-width: 800px;
-  padding: 20px;
+  padding: 0px 20px 0px 20px;
 }
 @media screen and (min-width: 800px) {
-  .main-game .section-grid {
+  .main-game .content-wrapper .section-grid {
     grid-template-columns: repeat(5, 1fr);
   }
 }
-.main-game .section-grid .grid-card {
+.main-game .content-wrapper .section-grid .grid-card {
   position: relative;
   aspect-ratio: 3/4;
   border-radius: 8px;
@@ -69,32 +76,53 @@
   background-color: #1C1919;
   transition: transform 0.4s;
 }
-.main-game .section-grid .grid-card .card-face {
+.main-game .content-wrapper .section-grid .grid-card .card-face {
   position: absolute;
   width: 100%;
   height: 100%;
   background-size: cover;
   border-radius: 8px;
 }
-.main-game .section-grid .grid-card .card-front {
+.main-game .content-wrapper .section-grid .grid-card .card-front {
   border: 1px solid #82815F;
   box-shadow: 0px 0px 5px rgba(243, 243, 243, 0.1843137255);
   transform: rotateY(180deg);
   transition: filter 0.8s, opacity 0.6s;
 }
-.main-game .section-grid .grid-card .revealed-card {
+.main-game .content-wrapper .section-grid .grid-card .revealed-card {
   opacity: 0.5;
   filter: saturate(0);
 }
-.main-game .section-grid .grid-card .card-back {
+.main-game .content-wrapper .section-grid .grid-card .card-back {
   cursor: pointer;
   backface-visibility: hidden;
   border: 1px solid #FFF2CE;
   box-shadow: 0px 0px 5px rgba(247, 196, 54, 0.4862745098);
-  background-image: url(../images/back.png);
+  background-image: url(../images/back.jpg);
 }
-.main-game .section-grid .rotate-card {
+.main-game .content-wrapper .section-grid .rotate-card {
   transform: rotateY(180deg);
+}
+.main-game .content-wrapper .ranking-wrapper {
+  width: 100%;
+  max-width: 800px;
+  padding: 0px 20px 20px 20px;
+}
+.main-game .content-wrapper .ranking-wrapper .ranking-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: #FFF2CE;
+  text-shadow: #F7C336 0 0 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+.main-game .content-wrapper .ranking-wrapper .ranking-list .ranking-title {
+  padding-bottom: 4px;
+}
+.main-game .content-wrapper .ranking-wrapper .ranking-list .ranking-time {
+  font-family: "Courier New", Courier, monospace;
+  letter-spacing: normal;
 }
 .main-game .restart-game {
   display: flex;
@@ -117,6 +145,7 @@
   font-size: 1.2rem;
 }
 .main-game .restart-game p span {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   padding: 3px;
   background-color: rgba(247, 196, 54, 0.4862745098);
 }
@@ -138,4 +167,20 @@
 .main-game .restart-game-hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+@media (min-width: 1320px) {
+  .main-game .content-wrapper .section-grid {
+    padding: 0px 20px 20px 20px;
+  }
+  .main-game .content-wrapper .ranking-wrapper {
+    position: absolute;
+    padding: 0;
+    max-width: 210px;
+    top: 20px;
+    left: -230px;
+  }
+  .main-game .content-wrapper .ranking-wrapper .ranking-list .ranking-title {
+    padding-bottom: 16px;
+  }
 }/*# sourceMappingURL=game.css.map */

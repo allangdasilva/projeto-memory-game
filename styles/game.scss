@@ -1,154 +1,206 @@
-@use 'variables' as *;
-@use 'mixins' as *;
+@use "variables" as *;
+@use "mixins" as *;
 
 @include reset;
 
 .main-game {
+  position: relative;
+
+  min-height: 100vh;
+  width: 100%;
+
+  background-image: url(../images/bg-login.jpg);
+  background-size: cover;
+  background-position: center;
+
+  .content-wrapper {
     position: relative;
     @include flex-center-column;
-    justify-content: initial;
-    
-    min-height: 100vh;
-    width: 100%;
-
-    background-image: url(../images/bg-login.jpg);
-    background-size: cover;
-    background-position: center;
+    gap: 20px;
+    max-width: 800px;
+    margin: auto;
 
     .header-game {
+      @include flex-center;
+      width: 100%;
+
+      .header-container {
         @include flex-center;
-        width: 100%;
-
-        background-image: linear-gradient($white-1, transparent);
-
-        .header-container {
-            @include flex-center;
-            justify-content: space-between;
-
-            width: 100%;
-            max-width: 800px;
-
-            padding: 20px;
-
-            span {
-                font-size: 1.1rem;
-                font-weight: 600;
-    
-                color: $marfim;
-                text-shadow: $gold 0 0 5px;
-            }
-            .player-time {
-                .time {
-                    font-size: 1.2rem;
-                    font-weight: 500;
-                }
-            }
-        }
-    }
-    .section-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
+        justify-content: space-between;
 
         width: 100%;
         max-width: 800px;
 
-        padding: 20px;
+        padding: 20px 20px 0px 20px;
 
-        // Desktop
-        @include desktop {
-            grid-template-columns: repeat(5, 1fr);
+        span {
+          font-size: 1.1rem;
+          font-weight: 600;
+
+          color: $marfim;
+          text-shadow: $gold 0 0 5px;
         }
-        
-        .grid-card {
-            position: relative;
-
-            aspect-ratio: 3/4;
-            border-radius: 8px;
-
-            transform-style: preserve-3d;
-
-            background-color: $black;
-
-            transition: transform .4s;
-
-
-            .card-face {
-                position: absolute;
-
-                width: 100%;
-                height: 100%;
-
-                background-size: cover;
-
-                border-radius: 8px;
-            }
-            .card-front {
-                border: 1px solid $gold-2;
-                box-shadow: 0px 0px 5px $white-1;
-
-                transform: rotateY(180deg);
-                
-                transition: filter .8s, opacity .6s;
-            }
-            .revealed-card {
-                opacity: .5;
-                filter: saturate(0);
-            }
-            .card-back {
-                cursor: pointer;
-                backface-visibility: hidden;
-
-                border: 1px solid $marfim;
-                box-shadow: 0px 0px 5px $gold-1;
-
-                background-image: url(../images/back.png);
-            }
+        .player-time {
+          .time {
+            font-family: "Courier New", Courier, monospace;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: normal;
+          }
         }
-        .rotate-card {
-            transform: rotateY(180deg);
-            
-        }
+      }
     }
-    .restart-game {
-        @include flex-center-column;
-        gap: 18px;
+    .section-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
 
+      width: 100%;
+      max-width: 800px;
+
+      padding: 0px 20px 0px 20px;
+
+      // Desktop
+      @include desktop {
+        grid-template-columns: repeat(5, 1fr);
+      }
+
+      .grid-card {
+        position: relative;
+
+        aspect-ratio: 3/4;
+        border-radius: 8px;
+
+        transform-style: preserve-3d;
+
+        background-color: $black;
+
+        transition: transform 0.4s;
+
+        .card-face {
+          position: absolute;
+
+          width: 100%;
+          height: 100%;
+
+          background-size: cover;
+
+          border-radius: 8px;
+        }
+        .card-front {
+          border: 1px solid $gold-2;
+          box-shadow: 0px 0px 5px $white-1;
+
+          transform: rotateY(180deg);
+
+          transition: filter 0.8s, opacity 0.6s;
+        }
+        .revealed-card {
+          opacity: 0.5;
+          filter: saturate(0);
+        }
+        .card-back {
+          cursor: pointer;
+          backface-visibility: hidden;
+
+          border: 1px solid $marfim;
+          box-shadow: 0px 0px 5px $gold-1;
+
+          background-image: url(../images/back.jpg);
+        }
+      }
+      .rotate-card {
+        transform: rotateY(180deg);
+      }
+    }
+    .ranking-wrapper {
+      width: 100%;
+      max-width: 800px;
+      padding: 0px 20px 20px 20px;
+
+      .ranking-list {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        color: $marfim;
+        text-shadow: $gold 0 0 5px;
+        font-size: 1.1rem;
+        font-weight: 600;
+
+        .ranking-title {
+          padding-bottom: 4px;
+        }
+        .ranking-time {
+          font-family: "Courier New", Courier, monospace;
+          letter-spacing: normal;
+        }
+      }
+    }
+  }
+  .restart-game {
+    @include flex-center-column;
+    gap: 18px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    padding-inline: 10px;
+
+    background: $bg-primary;
+
+    transition: all 0.4s;
+
+    p {
+      text-align: center;
+      color: $white;
+      font-size: 1.2rem;
+
+      span {
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+        padding: 3px;
+        background-color: $gold-1;
+      }
+    }
+    button {
+      @include button-style;
+      transition: all 0.2s;
+
+      &:hover {
+        color: $gold;
+        background-color: $white;
+      }
+    }
+  }
+  .restart-game-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+@media (min-width: 1320px) {
+  .main-game {
+    .content-wrapper {
+      .section-grid {
+        padding: 0px 20px 20px 20px;
+      }
+      .ranking-wrapper {
         position: absolute;
-        top: 0;
-        left: 0;
+        padding: 0;
+        max-width: 210px;
+        top: 20px;
+        left: -230px;
 
-        width: 100%;
-        height: 100%;
-
-        padding-inline: 10px;
-
-        background: $bg-primary;
-
-        transition: all .4s;
-
-        p {
-            text-align: center;
-            color: $white;
-            font-size: 1.2rem;
-
-            span {
-                padding: 3px;
-                background-color: $gold-1;
-            }
+        .ranking-list {
+          .ranking-title {
+            padding-bottom: 16px;
+          }
         }
-        button {
-            @include button-style;
-            transition: all .2s;
-
-            &:hover{
-                color: $gold;
-                background-color: $white;
-            }
-        }
+      }
     }
-    .restart-game-hidden {
-        opacity: 0;
-        pointer-events: none;
-    }
+  }
 }

@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da Memória | Login</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      href="/images/house-targaryen-light.svg"
+      type="image/svg+xml"
+    />
+    <title>Jogo da Memória</title>
     <!-- Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
     <!-- Style Login -->
-    <link rel="stylesheet" href="../styles/game.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../styles/game.css" />
+  </head>
+  <body>
     <main class="main-game">
+      <div class="content-wrapper">
         <!-- Header Game -->
         <header class="header-game">
-            <div class="header-container">
-                <div class="player-name">
-                    <span class="name"> <!-- NAME /--></span>
-                </div>
-                <div class="player-time">
-                    <span>Tempo: <span class="time"> <!-- TIME /--> </span></span>
-                </div>
+          <div class="header-container">
+            <div class="player-name">
+              <span class="name"> <!-- NAME /--></span>
             </div>
+            <div class="player-time">
+              <span
+                >Tempo: <span class="time"> <!-- TIME /--> </span></span
+              >
+            </div>
+          </div>
         </header>
 
         <!-- Section Grid -->
         <section class="section-grid">
-            <!-- CARD -->
+          <!-- CARD -->
         </section>
 
-        <!-- Restart -->
-        <div class="restart-game restart-game-hidden">
-            <p>Parabéns!!! Seu tempo foi: <span id="player-time"></span></p>
-            <button id="play-again-btn">Jogar novamente</button>
+        <!-- Ranking -->
+        <div class="ranking-wrapper">
+          <ul class="ranking-list">
+            <li class="ranking-title">Ranking:</li>
+          </ul>
         </div>
+      </div>
+
+      <!-- Restart -->
+      <div class="restart-game restart-game-hidden">
+        <p>Parabéns!!! Seu tempo foi de: <span id="player-time"></span></p>
+        <button id="play-again-btn">Jogar novamente</button>
+      </div>
     </main>
 
     <!-- Script Login -->
     <script src="../js/game.js"></script>
-</body>
+  </body>
 </html>

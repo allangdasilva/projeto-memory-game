@@ -4,6 +4,7 @@
   box-sizing: border-box;
   border: none;
   outline: 0;
+  list-style: none;
   font-family: "Pixelify Sans", sans-serif;
   text-transform: uppercase;
   letter-spacing: 2px;
