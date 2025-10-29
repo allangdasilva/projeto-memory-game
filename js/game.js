@@ -196,7 +196,7 @@ function restartGame() {
 window.addEventListener("load", () => {
   const player = localStorage.getItem("player");
   if (!player) {
-    window.location = "/";
+    window.location = "/projeto-memory-game/";
   }
   createCharacters();
   playerName();
