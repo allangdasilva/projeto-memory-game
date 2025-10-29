@@ -194,6 +194,10 @@ function restartGame() {
   });
 }
 window.addEventListener("load", () => {
+  const player = localStorage.getItem("player");
+  if (!player) {
+    window.location = "/";
+  }
   createCharacters();
   playerName();
   playerTime();
